@@ -7,7 +7,7 @@
 	 <display-name>java_para_web</display-name>
 	 
 	 <welcome-file-list>
-		<welcome-file>Pagina1.xhtml</welcome-file>
+		<welcome-file>index.html</welcome-file>
      </welcome-file-list>
 	 
 	 <context-param>
@@ -37,7 +37,7 @@
 
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.xhtml</url-pattern>
+		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
  
 </web-app>
