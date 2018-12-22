@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="WEB-INF/template/template2.xhtml">
+
+	<h:head>
+		<meta charset="UTF-8" />
+		<title>Pagina3</title>
+		<!-- <h:outputStylesheet library="libraries" name="estilo.css" />-->
+	</h:head>
+
+	<h:body>
+	pagina login
+	obrigado pelo seu registo
+	
+	<div id="conteudo">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Email: " for="email" />
+					<h:inputText id="email" />
+
+					<h:outputLabel value="Nome: " for="nome" />
+					<h:inputText id="nome" />
+				
+				<h:outputLabel />
+				 <h:commandButton value="Entrar" />
+				
+				</h:panelGrid>
+				<hr />
+
+			</h:form>
+		</div>
+		
+
+	</h:body>
+
+</ui:decorate>
