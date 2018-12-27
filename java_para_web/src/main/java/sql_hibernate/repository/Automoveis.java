@@ -40,7 +40,11 @@ private EntityManager manager;
 		query.setParameter("nome_automovel", nome + "%");
 		
 		return query.getResultList();
-}
+		}
+    
+    public List<Automovel> todos() {
+        return manager.createQuery("from Automovel", Automovel.class).getResultList();
+   }
     
     public Automovel guardar(Automovel automovel) {
 		return manager.merge(automovel);
