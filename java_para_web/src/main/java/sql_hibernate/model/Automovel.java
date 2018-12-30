@@ -29,7 +29,7 @@ public class Automovel implements Serializable {
 	private Date anoCarro;
 
 	@ManyToOne
-	@JoinColumn(name = "dono_carro")
+	@JoinColumn(name = "id", insertable=false, updatable=false)
 	private Pessoa pessoa;
 
 	public Long getId() {

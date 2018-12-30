@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import sql_hibernate.model.Automovel;
+import sql_hibernate.model.Pessoa;
 
 public class SchemaGeneration implements Serializable{
 
@@ -14,7 +15,7 @@ public class SchemaGeneration implements Serializable{
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("javawebPU");
         EntityManager em = emf.createEntityManager();
         //System.out.println(em);
-em.getTransaction().begin();
+        em.getTransaction().begin();
         
 		// Vou criar um automovel
 		Automovel automovel = new Automovel();
@@ -22,6 +23,12 @@ em.getTransaction().begin();
 		automovel.setMarca("punto");
 		automovel.setModelo("sx");
 		automovel.setAnoCarro(new Date());
+		
+		Pessoa pessoa = new Pessoa();
+		pessoa.setIdade(30);
+		pessoa.setMorada("TESTE");
+		pessoa.setNome("Daniel da Silva");
+		automovel.setPessoa(pessoa);
 		
 		Automoveis automoveis = new Automoveis(em);
         // guardar/salvar o automovel inserido

@@ -30,7 +30,7 @@ public class Dados implements Serializable {
 	private String password;
 	
 	@OneToOne
-	@JoinColumn(name = "pessoa_login")
+	@JoinColumn(name = "id")
 	private Pessoa pessoa;
 
 	public Long getId() {
