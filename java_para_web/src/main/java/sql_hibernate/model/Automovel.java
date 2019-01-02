@@ -5,15 +5,15 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Automovel")
-public class Automovel implements Serializable {
+@Table(name = "Automovel")	
+public class Automovel implements Serializable, ClasseBase {	
 
 	private static final long serialVersionUID = 1L;
-	
-	
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name="idautomovel")
+	private Long idAutomovel;
 
 	@Column(name = "nome_automovel")
 	private String nome;
@@ -29,15 +29,17 @@ public class Automovel implements Serializable {
 	private Date anoCarro;
 
 	@ManyToOne
-	@JoinColumn(name = "id", insertable=false, updatable=false)
+	@JoinColumn(name = "pessoa_id",referencedColumnName="idpessoa",
+			foreignKey = @ForeignKey(name = "Fkey_Pessoa")
+	)
 	private Pessoa pessoa;
 
-	public Long getId() {
-		return id;
+	public Long getIdAutomovel() {
+		return idAutomovel;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdAutomovel(Long idAutomovel) {
+		this.idAutomovel = idAutomovel;
 	}
 
 	public String getNome() {
@@ -88,7 +90,7 @@ public class Automovel implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((idAutomovel == null) ? 0 : idAutomovel.hashCode());
 		return result;
 	}
 
@@ -101,12 +103,18 @@ public class Automovel implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Automovel other = (Automovel) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (idAutomovel == null) {
+			if (other.idAutomovel != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!idAutomovel.equals(other.idAutomovel))
 			return false;
 		return true;
+	}
+
+	@Override
+	public Serializable getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

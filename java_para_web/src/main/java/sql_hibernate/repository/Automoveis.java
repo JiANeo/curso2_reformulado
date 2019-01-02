@@ -22,14 +22,14 @@ private EntityManager manager;
 		this.manager = manager;
 	}
 	public Automoveis(EntityManager manager){
-    	this.manager=manager;
+    	this.manager=manager;	
     	
     }
-    
+    	
     
     public Automovel porId(Long id) {
 		return manager.find(Automovel.class, id);
-}
+    }
     
     public List<Automovel> pesquisar(String nome) {
 		String jpql = "from Automovel where nome like :nome";
@@ -50,7 +50,7 @@ private EntityManager manager;
 		return manager.merge(automovel);
 }
     public void remover(Automovel automovel) {
-		automovel = porId(automovel.getId());
+		automovel = porId(automovel.getIdAutomovel());
 		manager.remove(automovel);
 }
 	

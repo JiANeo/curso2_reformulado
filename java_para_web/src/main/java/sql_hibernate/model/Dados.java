@@ -8,20 +8,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Dados")
-public class Dados implements Serializable {
+public class Dados implements ClasseBase, Serializable  {
 	
 	
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name="iddados")
+	private Long idDados;
 
 	@Column(name = "email_dados")
 	private String email;
@@ -30,15 +30,15 @@ public class Dados implements Serializable {
 	private String password;
 	
 	@OneToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "pessoa_id")
 	private Pessoa pessoa;
-
-	public Long getId() {
-		return id;
+	
+	public Long getIdDados() {	
+		return idDados;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdDados(Long idDados) {
+		this.idDados = idDados;
 	}
 
 	public String getEmail() {
@@ -92,6 +92,12 @@ public class Dados implements Serializable {
 		} else if (!email.equals(other.email))
 			return false;
 		return true;
+	}
+
+	@Override
+	public Serializable getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 
