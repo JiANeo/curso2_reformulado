@@ -13,23 +13,29 @@ public class Pessoa implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
+	private int id;
 	
 	
 	@Column(name ="nome_pessoa")
 	private String nome;
 	
 	@Column(name="idade_pessoa")
-	private String idade;
+	private int idade;
 	
 	@Column(name="morada_pessoa")
 	private String morada;
 
-	public String getId() {
+	@OneToOne
+	//@JoinColumn(name = "pessoa_login")
+	@JoinColumn(name = "id")
+	private Dados dados;
+
+	
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -41,11 +47,11 @@ public class Pessoa implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getIdade() {
+	public int getIdade() {
 		return idade;
 	}
 
-	public void setIdade(String idade) {
+	public void setIdade(int idade) {
 		this.idade = idade;
 	}
 
@@ -65,7 +71,8 @@ public class Pessoa implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		//result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + id;
 		return result;
 	}
 
@@ -78,10 +85,12 @@ public class Pessoa implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Pessoa other = (Pessoa) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
+//		if (id == null) {
+//			if (other.id != null)
+//				return false;
+		//} else 
+			
+			if (id != other.id)
 			return false;
 		return true;
 	}
