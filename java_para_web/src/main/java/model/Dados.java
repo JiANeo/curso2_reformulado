@@ -1,4 +1,4 @@
-package sql_hibernate.model;
+package model;
 
 import java.io.Serializable;
 

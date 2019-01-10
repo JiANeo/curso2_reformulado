@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import sql_hibernate.model.ClasseBase;
+import model.ClasseBase;
 
 
 public class GenericDAO<T extends ClasseBase> {
