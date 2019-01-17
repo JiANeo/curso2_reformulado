@@ -13,7 +13,7 @@ public class Pessoa implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id_pessoa;
 	
 	
 	@Column(name ="nome_pessoa")
@@ -25,18 +25,18 @@ public class Pessoa implements Serializable {
 	@Column(name="morada_pessoa")
 	private String morada;
 
-	@OneToOne
-	//@JoinColumn(name = "pessoa_login")
-	@JoinColumn(name = "id")
-	private Dados dados;
+//	@OneToOne
+//	//@JoinColumn(name = "pessoa_login")
+//	@JoinColumn(name = "id_dados")
+//	private Dados dados;
 
 	
 	public int getId() {
-		return id;
+		return id_pessoa;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.id_pessoa = id;
 	}
 
 	public String getNome() {
@@ -72,7 +72,7 @@ public class Pessoa implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		//result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + id;
+		result = prime * result + id_pessoa;
 		return result;
 	}
 
@@ -90,7 +90,7 @@ public class Pessoa implements Serializable {
 //				return false;
 		//} else 
 			
-			if (id != other.id)
+			if (id_pessoa != other.id_pessoa)
 			return false;
 		return true;
 	}
