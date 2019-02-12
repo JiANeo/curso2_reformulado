@@ -1,9 +1,11 @@
 
 <!DOCTYPE html>
+<!-- xmlns:f="http://java.jcp.org/jsf/core" estava este antes   -->
+
 <!-- xmlns:f="http://java.jcp.org/jsf/core" tambem pode ser , tinha nates xmlns:f="http://java.sun.com/jsf/core" -->
 <ui:decorate xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.jcp.org/jsf/core"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	template="WEB-INF/template/template.xhtml">
@@ -13,50 +15,49 @@
 		<title>Automoveis Registados</title>
 		<h:outputStylesheet library="libraries" name="estilo.css" />
 
-		<f:metadata>
-			<f:viewAction action="#{AutomovelBean.todosAutomoveis}" />
-		</f:metadata>
-	</h:head>
+		 <f:metadata>
+			<f:viewAction action="#{pessoaBean.todasPessoas}" />
+		</f:metadata> 
+	</h:head> 
 
 	<h:body>
 		<h2>Automoveis registados</h2>
-
-
-		<hr />
+<hr />
 		<div>
 			<form>
 		<p:inputText placeholder=" digite aqui o que quer pesquisar" size="28" />
-		<p:commandButton value="Pesquisar" icone="fa fa-search" />
-		<p:commandButton type="button" title="Save" icon="fa fa-save" />
+		<p:commandButton value="Pesquisar" icone="fa fa-search" ActionListener=""/>
+		<!-- <p:commandButton type="button" title="Save" icon="fa fa-save" />
 		<p:commandButton type="button" title="Delete" icon="fa fa-trash" />
-		<p:commandButton type="button" title="Print" icon="fa fa-print" />
+		<p:commandButton type="button" title="Print" icon="fa fa-print" /> -->
 
 </form>
 </div>
 <hr />
 		<div>
 			<form>
-				<p:dataTable value="#{AutomovelBean.ListaAutomoveis}"
-					var="automovel" emptyMessage="Nenhuma informação a ser exibida">
+				<p:dataTable value="#{pessoaBean.listapessoas}"
+					var="pessoap" emptyMessage="Nenhuma informação a ser exibida">
 
-					<p:column headerText="Nome do automovel">
-						<h:outputText value="#{automovel.nome}" />
-					</p:column>
+					    <!-- <p:column headerText="Idade da Pessoa">
+					 <h:outputText value="#{pessoa.idade}" />
+						<p:commandButton type="button" title="Save" icon="fa fa-save" />
+					</p:column>  --> 
 
-					<p:column headerText="Marca do automovel">
-						<h:outputText value="#{automovel.marca}" />
-					</p:column>
-
-					<p:column headerText="Modelo do automovel">
-						<h:outputText value="#{automovel.modelo}" />
-					</p:column>
+					 <p:column headerText="Nome Pessoa">
+						<h:outputText value="#{pessoap.nome}" />
+					</p:column>  
+ -->
+					<!-- <p:column headerText="Morada da Pessoa">
+						 <h:outputText value="#{pessoa.morada_pessoa}" />
+					</p:column> -->
 
 
 				</p:dataTable>
 			</form>
 		</div>
 
-		<a href="NewFile.html"><button>bootstrap</button></a>
+		<a href="NewFile.html"><button >Ir para o Inicio</button></a>
 
 
 	</h:body>

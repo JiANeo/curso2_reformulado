@@ -3,6 +3,9 @@ package sql_hibernate.model;
 import java.io.Serializable;
 
 import javax.persistence.*;
+import java.lang.*;
+
+
 
 @Entity
 @Table(name="Pessoa")
@@ -43,10 +46,6 @@ public class Pessoa implements Serializable {
 		return nome;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public int getIdade() {
 		return idade;
 	}
@@ -54,6 +53,14 @@ public class Pessoa implements Serializable {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	
+
+	
 
 	public String getMorada() {
 		return morada;
@@ -71,7 +78,6 @@ public class Pessoa implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		//result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + id_pessoa;
 		return result;
 	}
@@ -85,14 +91,41 @@ public class Pessoa implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Pessoa other = (Pessoa) obj;
-//		if (id == null) {
-//			if (other.id != null)
-//				return false;
-		//} else 
-			
-			if (id_pessoa != other.id_pessoa)
+		if (id_pessoa != other.id_pessoa)
 			return false;
 		return true;
 	}
+	
+	
+	
+	//-----------------------------------------
+
+//	@Override
+//	public int hashCode() {
+//		final int prime = 31;
+//		int result = 1;
+//		//este nao//result = prime * result + ((id == null) ? 0 : id.hashCode());
+//		result = prime * result + id_pessoa;
+//		return result;
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Pessoa other = (Pessoa) obj;
+////	este nao	if (id == null) {
+////	este nao		if (other.id != null)
+////	este nao			return false;
+//		// este nao} else 
+//			
+//			if (id_pessoa != other.id_pessoa)
+//			return false;
+//		return true;
+//	}
 
 }

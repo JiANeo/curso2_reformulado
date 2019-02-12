@@ -3,8 +3,10 @@ package sql_hibernate.repository;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 //import sql_hibernate.model.Automovel;
 //import sql_hibernate.model.Dados;
@@ -18,60 +20,65 @@ public class SchemaGeneration implements Serializable{
         //System.out.println(em);
 em.getTransaction().begin();
         
-		// Vou criar um automovel
-//		Automovel automovel = new Automovel();
-//		automovel.setNome("fiat");
-//		automovel.setMarca("punto");
-//		automovel.setModelo("sx");
-//		automovel.setAnoCarro(new Date());
-//		
-
+//		// Vou criar um automovel
+////		Automovel automovel = new Automovel();
+////		automovel.setNome("fiat");
+////		automovel.setMarca("punto");
+////		automovel.setModelo("sx");
+////		automovel.setAnoCarro(new Date());
+////		
+//
 	    Pessoa pessoa2 = new Pessoa();
-	    pessoa2.setId(6);
-		//pessoa2.setIdade(80);
-	//pessoa2.setMorada("Alameda 1 de Março");
-		 pessoa2.setNome("Daniela Santos");
-	
-		Pessoas pessoas = new Pessoas(em);
-		//pessoas.guardar(pessoa2);
-		//pessoas.inserir(pessoa2);
-		pessoas.porIdupdate(pessoa2.getId(),pessoa2.getNome());
-		
-		
-	
-//		Automovel automovel = new Automovel();
-//		automovel.setNome("fiat");
-//		automovel.setMarca("punto");
-//		automovel.setModelo("sx");
-//		automovel.setAnoCarro(new Date());
+//	    pessoa2.setId(6);
+      pessoa2.setIdade(50);
+       pessoa2.setMorada("Alameda 1 de Março");
+	 pessoa2.setNome("Daniela Santos");
+////	
+	Pessoas pessoas = new Pessoas(em);
+////		//pessoas.guardar(pessoa2);
+		pessoas.inserir(pessoa2);
+////		pessoas.porIdupdate(pessoa2.getId(),pessoa2.getNome());
 //		
-//		Dados dados =new Dados();
-//		dados.setEmail("rsraulsnts@gmail.com");
-//		dados.setPassword("123456");
-		
-//		Pessoas pessoas = new Pessoas(em);
-//		pessoas.guardar(pessoa);
+////		ArrayList array = new ArrayList();
+////		array.add(pessoas.todas());
+////		for (int i = 0; i < array.size(); i++) {
+////			System.out.println(array.get(i));
+////		}
 //		
-		//pessoas.inserir(pessoa);
-		
-	
-//		Automoveis automoveis = new Automoveis(em);
-//		automoveis.guardar(automovel);
 //		
-//		dadospersistencia dadospersiste=new dadospersistencia(em);
-//		dadospersiste.guardar(dados);
+////		Automovel automovel = new Automovel();
+////		automovel.setNome("fiat");
+////		automovel.setMarca("punto");
+////		automovel.setModelo("sx");
+////		automovel.setAnoCarro(new Date());
+////		
+////		Dados dados =new Dados();
+////		dados.setEmail("rsraulsnts@gmail.com");
+////		dados.setPassword("123456");
 //		
-		
-
-		// faço o commit das transaçoes
+////		Pessoas pessoas = new Pessoas(em);
+////		pessoas.guardar(pessoa);
+////		
+//		//pessoas.inserir(pessoa);
+//		
+//	
+////		Automoveis automoveis = new Automoveis(em);
+////		automoveis.guardar(automovel);
+////		
+////		dadospersistencia dadospersiste=new dadospersistencia(em);
+////		dadospersiste.guardar(dados);
+////		
+//		
+//
+//		// faço o commit das transaçoes
 		em.getTransaction().commit();
 		
-//		System.out.println(""+pessoas.todaspessoas());
-//		System.out.println(""+automoveis.todos());
-//		System.out.println(""+dadospersiste.todosdados());
+////		System.out.println(""+pessoas.todaspessoas());
+////		System.out.println(""+automoveis.todos());
+////		System.out.println(""+dadospersiste.todosdados());
+////
 //
-
-
+//
 		em.close();
 		emf.close();
 	}

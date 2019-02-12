@@ -15,6 +15,7 @@
    </properties>
   
   
+  
   <repositories>
 		<repository>
 			<id>prime-repo</id>
@@ -25,6 +26,13 @@
 	</repositories>
 
 	<dependencies>
+	
+	<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet</artifactId>
+			<version>2.4.0.Final</version>
+			<scope>compile</scope>
+		</dependency>
 		
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
@@ -38,12 +46,14 @@
 			<version>4.0.3</version>
 		</dependency>
 		<dependency>
+		
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
 			<version>2.2.14</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
+		
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>6.2</version>

@@ -3,17 +3,23 @@ package sql_hibernate.repository;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
+
 
 //import sql_hibernate.model.Automovel;
 import sql_hibernate.model.Pessoa;
+import sql_hibernate.util.Transacional;
 
 public class Pessoas implements Serializable {
-
+	
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Inject
 	private EntityManager manager;
 
 	public Pessoas() {
@@ -34,15 +40,25 @@ public class Pessoas implements Serializable {
 	}
 
 	// metodos jpa
-
+	 
+	   
 	  public Pessoa porId(Long id_pessoa) {
 			return manager.find(Pessoa.class, id_pessoa);
 	}
 	  
-	  public List<Pessoa> todaspessoas(){
+	
+//	  public List<Pessoa> todas(){
+//		  
+//		  return manager.createQuery("from Pessoa",Pessoa.class).getResultList();
+//		  }
+	  
+	  public List<Pessoa> todas(){
+		  String query = "Select nome_pessoa  from Pessoa";
+		  Query q=manager.createNativeQuery(query);
+		  return q.getResultList();
 		  
-		  return manager.createQuery("from Pessoa",Pessoa.class).getResultList();
 	  }
+	  
 	  
 	  public Pessoa guardar(Pessoa pessoa) {
 			return manager.merge(pessoa);
@@ -58,6 +74,24 @@ public class Pessoas implements Serializable {
 		    		    	 }
 	  public void  porIdupdate(int id_pessoa, String nome) {
 			Pessoa pes= manager.find(Pessoa.class, id_pessoa);
-			pes.setNome(nome);
+			
+			System.out.println(pes.getNome());
 	}
+	  
+	public List<Pessoa> pesquisarpessoasbtn(){
+		
+	  String query =("select * from Pessoa");
+	  return manager.createQuery(query,Pessoa.class).getResultList();
+	  
+	
+  }
+	  
+	 
+	  
+	  //public List<Pessoa> pesquiarpessoasbtn(String nome){
+//		  String query =("select * from Pessoa where nome like %"+nome);
+//		  return manager.createQuery(query,Pessoa.class).getResultList();
+//		  
+//	  }
+
 }
